@@ -4,6 +4,7 @@ export const portfolioData = {
     summary: "I am a MERN Stack Developer with hands-on experience in building full-stack web applications. I specialize in developing REST APIs, authentication systems, and responsive user interfaces using MongoDB, Express.js, React.js, and Node.js. I focus on writing clean, maintainable code and building scalable solutions.",
     email: "nithishkumar652004@gmail.com",
     phone: "8825627811",
+    resume: "/resume.pdf", // Link to your resume file in the public folder
     github: "https://github.com/nk1411projects",
     linkedin: "https://linkedin.com/in/nithishkumar1411",
     skills: {
@@ -15,7 +16,7 @@ export const portfolioData = {
         networking: [
             "CCNA", "CCNP",
             "TCP/IP", "OSI Model", "IPv4/IPv6", "Subnetting",
-            "Routing & Switching ","OSPF","EIGRP","VLAN","STP","Inter-VLAN","ACL","NAT",
+            "Routing & Switching ", "OSPF", "EIGRP", "VLAN", "STP", "Inter-VLAN", "ACL", "NAT",
             "Network Security", "Wireless Basics",
             "Cisco CLI", "Packet Tracer"
         ]

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, ArrowRight } from 'lucide-react';
+import { Github, Linkedin, Mail, FileText } from 'lucide-react';
 import { portfolioData } from '../data/portfolio';
 
 
@@ -54,10 +54,12 @@ const Hero = () => {
                     className="flex flex-wrap justify-center gap-4 mb-12"
                 >
                     <a
-                        href="#projects"
+                        href={portfolioData.resume}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="px-8 py-3 rounded-xl bg-primary text-white font-medium flex items-center gap-2 hover:bg-primary/90 transition-all shadow-lg shadow-primary/20"
                     >
-                        View Projects <ArrowRight size={18} />
+                        Resume <FileText size={18} />
                     </a>
                     <div className="flex items-center gap-3 glass px-6 py-3 rounded-xl">
                         <a href={portfolioData.github} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors">
