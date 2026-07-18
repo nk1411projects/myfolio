@@ -1,18 +1,47 @@
-# React + Vite
+# Nithish Kumar G | Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, highly interactive, and visually stunning developer portfolio showcasing expertise in Full-Stack Web Development (MERN Stack) and Artificial Intelligence (Machine Learning, LLMs, RAG).
 
-Currently, two official plugins are available:
+## 🚀 Live Demo
+Visit the live portfolio: [nk-myfolio.vercel.app](https://nk-myfolio.vercel.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Key Features
+- **Interactive Neural Network Brain**: Custom interactive 3D SVG neural network brain graphic in the Hero section with real-time synapse signal animations.
+- **Curated Tech Skills Marquee**: Dynamic looping marquees featuring original brand SVG logos (React, Node, Python, TensorFlow, TailwindCSS, etc.) with smart dark-theme filters.
+- **Professional Projects Grid**: Detailed breakdowns of AI, Machine Learning, and Full-Stack web projects including case studies.
+- **Fluid Layout & Glassmorphism**: Stunning premium aesthetics utilizing vanilla CSS, Tailwind, custom particles, and Framer Motion.
+- **Integrated Contact Form**: Direct client inquiry form powered by EmailJS API with real-time validation and active social handles (LinkedIn, Email, Phone).
 
-## React Compiler
+## 🛠️ Built With
+- **Frontend Core**: [React.js](https://react.dev/) + [Vite](https://vite.dev/) (For high-speed rendering & development)
+- **Styling**: [TailwindCSS](https://tailwindcss.com/) & [Vanilla CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+- **Animations**: [Framer Motion](https://www.framer.com/motion/)
+- **Icons**: [Lucide React](https://lucide.dev/), [Devicons](https://devicon.dev/), and [Simple Icons](https://simpleicons.org/)
+- **Email Service**: [EmailJS](https://www.emailjs.com/)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 📦 Getting Started
 
-## Expanding the ESLint configuration
+### Prerequisites
+Ensure you have [Node.js](https://nodejs.org/) installed on your machine.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# myfolio
-# myfolio
+### Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/nk1411projects/myfolio.git
+   cd myfolio
+   ```
+
+2. Install the dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
+
+4. Build for production:
+   ```bash
+   npm run build
+   ```
