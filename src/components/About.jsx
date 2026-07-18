@@ -1,57 +1,81 @@
+import React from 'react';
 import { motion } from 'framer-motion';
-import { portfolioData } from '../data/portfolio';
-import profileImg from '../assets/profile.png';
+import profileImg from '../assets/profile.jpg';
 
 const About = () => {
-    return (
-        <section id="about" className="py-24 px-6 overflow-hidden">
-            <div className="container mx-auto">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-                    <motion.div
-                        initial={{ opacity: 0, x: -50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                    >
-                        <h2 className="text-4xl font-bold mb-8 text-white">About <br /><span className="gradient-text">Nithishkumar</span></h2>
-                        <div className="space-y-6 text-slate-400 leading-relaxed text-lg">
-                            <p>
-                                {portfolioData.summary}
-                            </p>
-                        </div>
 
-                        <div className="mt-10 grid grid-cols-2 gap-8">
-                            <div>
-                                <h4 className="text-white font-bold text-2xl mb-1">Entry-level</h4>
-                                <p className="text-sm text-slate-500 uppercase tracking-widest">Experience</p>
-                            </div>
-                            <div>
-                                <h4 className="text-white font-bold text-2xl mb-1">5+</h4>
-                                <p className="text-sm text-slate-500 uppercase tracking-widest">Projects Done</p>
-                            </div>
-                        </div>
-                    </motion.div>
+  return (
+    <section id="about" className="py-24 px-6 overflow-hidden relative">
+      <div className="container mx-auto max-w-6xl">
+        <div className="text-center mb-16">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="text-3xl sm:text-4xl font-extrabold tracking-tight"
+          >
+            About <span className="gradient-text">Me</span>
+          </motion.h2>
+          <div className="w-12 h-[2px] bg-accent mx-auto mt-4 rounded-full" />
+        </div>
 
-                    <motion.div
-                        initial={{ opacity: 0, x: 50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                        className="relative"
-                    >
-                        <div className="aspect-square rounded-3xl glass p-8 flex items-center justify-center">
-                            <div className="w-full h-full rounded-2xl bg-gradient-to-br from-primary/20 to-cyan-500/20 flex flex-col items-center justify-center border border-white/5">
-                                <img src={profileImg} alt="Profile" className="w-full h-full object-cover" />
-                                <div className="absolute inset-0 flex items-center justify-center">
-                                    <div className="w-48 h-48 rounded-full bg-primary/20 blur-[100px]" />
-                                </div>
-                            </div>
-                        </div>
-                    </motion.div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          {/* Right: profile photo container */}
+          <div className="lg:col-span-5 flex justify-center order-2 lg:order-2">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              whileHover={{ scale: 1.02 }}
+              className="relative w-[280px] h-[280px] sm:w-[350px] sm:h-[350px] group"
+            >
+              {/* Core glow */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-accent to-secondary-accent rounded-3xl blur-[20px] opacity-10 group-hover:opacity-20 transition-opacity duration-500" />
+              
+              {/* Outer frame */}
+              <div className="absolute inset-0 rounded-3xl border border-white/5 bg-gradient-to-tr from-white/5 to-transparent p-3 shadow-2xl">
+                <div className="w-full h-full rounded-2xl overflow-hidden border border-white/5 relative bg-[#0b0c14]">
+                  <img 
+                    src={profileImg} 
+                    alt="Nithish Kumar G" 
+                    className="w-full h-full object-cover filter brightness-[0.95] contrast-[1.05] group-hover:scale-105 transition-transform duration-700 ease-out" 
+                  />
+                  {/* Glass sheen overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-tr from-[#3b82f6]/10 via-transparent to-[#8b5cf6]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
                 </div>
-            </div>
-        </section>
-    );
+              </div>
+
+              {/* Float decors */}
+              <div className="absolute bottom-[-10px] right-[-10px] w-20 h-20 rounded-full bg-accent/10 blur-xl pointer-events-none" />
+              <div className="absolute top-[-10px] left-[-10px] w-20 h-20 rounded-full bg-secondary-accent/10 blur-xl pointer-events-none" />
+            </motion.div>
+          </div>
+
+          {/* Left: Summary and Stats Grid */}
+          <div className="lg:col-span-7 space-y-8 order-1 lg:order-1">
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="space-y-6 text-slate-300 leading-relaxed text-base sm:text-lg text-left"
+            >
+              <p>
+                I am a <strong className="text-white font-semibold">Full Stack Developer</strong> and <strong className="text-white font-semibold">AI Enthusiast</strong> currently pursuing MCA, passionate about building real-world Web applications, intelligent applications powered by Machine Learning, Generative AI, Retrieval-Augmented Generation (RAG), and Large Language Models.
+              </p>
+              <p>
+                My journey started with full-stack web development using the MERN stack and gradually evolved toward Artificial Intelligence, where I now focus on developing AI-powered solutions, agentic workflows, and enterprise-ready applications.
+              </p>
+            </motion.div>
+
+
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default About;

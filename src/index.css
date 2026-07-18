@@ -1,26 +1,161 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #09090b;
-  --color-foreground: #fafafa;
-  --color-primary: #6366f1;
+  --color-background: #050816;
+  --color-secondary-bg: #0B1120;
+  --color-card-bg: #111827;
+  --color-accent: #3B82F6;
+  --color-secondary-accent: #8B5CF6;
+  --color-success: #22C55E;
+  --color-text-primary: #F8FAFC;
+  --color-text-muted: #94A3B8;
+  --color-primary: #3B82F6;
+  
+  --font-sans: "Plus Jakarta Sans", "Inter", sans-serif;
+  
+  --animate-pulse-glow: pulse-glow 12s infinite ease-in-out;
+  --animate-twinkle: twinkle 4s infinite ease-in-out;
+  --animate-orbit: orbit 60s infinite linear;
+  --animate-orbit-reverse: orbit-reverse 45s infinite linear;
+  
+  @keyframes pulse-glow {
+    0%, 100% {
+      opacity: 0.35;
+      transform: scale(1) translate(0, 0);
+    }
+    50% {
+      opacity: 0.55;
+      transform: scale(1.1) translate(3%, -3%);
+    }
+  }
+  @keyframes twinkle {
+    0%, 100% {
+      opacity: 0.15;
+    }
+    50% {
+      opacity: 0.85;
+    }
+  }
+  @keyframes orbit {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes orbit-reverse {
+    from {
+      transform: rotate(360deg);
+    }
+    to {
+      transform: rotate(0deg);
+    }
+  }
 }
 
 :root {
-  --primary: #6366f1;
-  --background: #09090b;
-  --foreground: #fafafa;
+  --primary: #3B82F6;
+  --background: #050816;
+  --foreground: #F8FAFC;
 }
 
 body {
-  @apply bg-background text-foreground selection:bg-primary/30;
-  font-family: 'Inter', sans-serif;
+  @apply bg-background text-text-primary antialiased selection:bg-accent/30 overflow-x-hidden;
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  letter-spacing: 0.015em;
 }
 
-.glass {
-  @apply backdrop-blur-md bg-white/5 border border-white/10;
+/* Glassmorphism Styles */
+.glass-card {
+  @apply backdrop-blur-xl bg-[#111827]/40 border border-white/5 shadow-2xl;
+  transition: border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+              background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  @apply border-accent/20 bg-[#111827]/60 shadow-accent/5;
+}
+
+.glass-navbar {
+  @apply backdrop-blur-md bg-[#050816]/75 border-b border-white/5;
 }
 
 .gradient-text {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-cyan-500;
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-accent to-secondary-accent;
+}
+
+.gradient-text-blue {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-[#60A5FA] to-accent;
+}
+
+.gradient-border {
+  position: relative;
+}
+
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(to right, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  transition: background 0.4s ease;
+}
+
+.gradient-border:hover::before {
+  background: linear-gradient(to right, rgba(59, 130, 246, 0.3), rgba(139, 92, 246, 0.3));
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #050816;
+}
+::-webkit-scrollbar-thumb {
+  background: #1f2937;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3B82F6;
+}
+
+/* Text Selection */
+::selection {
+  background-color: rgba(59, 130, 246, 0.25);
+  color: #F8FAFC;
+}
+
+/* Custom styles for cursor trail */
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #3B82F6;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transition: width 0.2s, height 0.2s, background-color 0.2s;
+}
+
+.cursor-outline {
+  width: 40px;
+  height: 40px;
+  border: 1.5px solid rgba(139, 92, 246, 0.4);
+  position: fixed;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transition: transform 0.1s ease-out, width 0.2s, height 0.2s, border-color 0.2s;
 }

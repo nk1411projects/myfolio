@@ -1,123 +1,180 @@
 import React from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Code2, Server, Database, ShieldCheck, Wrench, Globe } from 'lucide-react';
-import { portfolioData } from '../data/portfolio';
-
-const SkillCard = ({ title, icon: Icon, skills }) => {
-    const [isHovered, setIsHovered] = React.useState(false);
-    const isNetworking = title === 'Networking';
-
-    // Spring configuration for premium feel
-    const springConfig = { type: "spring", stiffness: 400, damping: 30 };
-
-    const containerVariants = {
-        initial: {},
-        hover: {
-            transition: {
-                staggerChildren: 0.03,
-                delayChildren: 0.05
-            }
-        }
-    };
-
-    const itemVariants = {
-        initial: { opacity: 0, scale: 0.9, y: 5 },
-        hover: { opacity: 1, scale: 1, y: 0 },
-        exit: { opacity: 0, scale: 0.9, y: 5 }
-    };
-
-    // Initially only display core certifications for Networking
-    const displayedSkills = (isNetworking && !isHovered)
-        ? skills.filter(s => s === 'CCNA' || s === 'CCNP')
-        : skills;
-
-    return (
-        <motion.div
-            layout
-            initial="initial"
-            animate={isHovered ? "hover" : "initial"}
-            variants={containerVariants}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-            whileHover={{ y: -5 }}
-            transition={springConfig}
-            className="p-5 rounded-2xl glass relative overflow-hidden group"
-        >
-            <div className="relative z-10">
-                <motion.div
-                    layout="position"
-                    className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-white transition-colors duration-300"
-                >
-                    <Icon size={24} />
-                </motion.div>
-
-                <motion.h3 layout="position" className="text-xl font-bold mb-3">{title}</motion.h3>
-
-                <motion.div
-                    layout
-                    className="flex flex-wrap gap-2 min-h-[32px]"
-                >
-                    <AnimatePresence mode="popLayout" initial={false}>
-                        {displayedSkills.map((skill) => (
-                            <motion.span
-                                key={skill}
-                                layout
-                                variants={itemVariants}
-                                initial="initial"
-                                animate="hover"
-                                exit="exit"
-                                transition={springConfig}
-                                className="px-3 py-1 rounded-lg bg-white/5 text-sm text-slate-300 border border-white/5 whitespace-nowrap group-hover:border-primary/20 transition-colors"
-                            >
-                                {skill}
-                            </motion.span>
-                        ))}
-                    </AnimatePresence>
-
-                    {isNetworking && !isHovered && skills.length > 2 && (
-                        <motion.span
-                            layout
-                            initial={{ opacity: 0, x: -10 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            exit={{ opacity: 0, scale: 0.8 }}
-                            className="px-3 py-1 rounded-lg bg-primary/10 text-xs text-primary font-medium flex items-center"
-                        >
-                            +{skills.length - 2} more
-                        </motion.span>
-                    )}
-                </motion.div>
-            </div>
-
-            {/* Subtle background glow on hover */}
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-        </motion.div>
-    );
-};
+import { motion } from 'framer-motion';
+import { 
+  Cpu, FileCode, Sparkles, Terminal, 
+  Search, Workflow, Link2, Code2
+} from 'lucide-react';
 
 const Skills = () => {
-    const categories = [
-        { title: 'Frontend', icon: Code2, skills: portfolioData.skills.frontend },
-        { title: 'Backend', icon: Server, skills: portfolioData.skills.backend },
-        { title: 'Database', icon: Database, skills: portfolioData.skills.database },
-        { title: 'Security', icon: ShieldCheck, skills: portfolioData.skills.security },
-        { title: 'Tools', icon: Wrench, skills: portfolioData.skills.tools },
-        { title: 'Networking', icon: Globe, skills: portfolioData.skills.networking },
-    ];
+  // Mapping skills to original logo URLs or Lucide Icons
+  const skillIcons = {
+    // Row 1: AI
+    "Python": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg",
+    "ML & DL": Cpu,
+    "TensorFlow": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg",
+    "Scikit-Learn": "https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/scikitlearn.svg",
+    "NLP": FileCode,
+    "Transformers": "https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/huggingface.svg",
+    "LLMs": Sparkles,
+    "Prompt Engineering": Terminal,
+    "LangChain": "https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/langchain.svg",
+    "RAG": Search,
+    "AI Agents": Workflow,
+    // Row 2: Backend
+    "Node.js": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg",
+    "Express": "https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/express.svg",
+    "FastAPI": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg",
+    "REST APIs": Link2,
+    "JWT": "https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/jsonwebtokens.svg",
+    "MongoDB": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg",
+    "MySQL": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg",
+    // Row 3: Frontend & Tools
+    "React": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
+    "HTML": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg",
+    "CSS": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg",
+    "JavaScript": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg",
+    "TailwindCSS": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
+    "Git": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg",
+    "GitHub": "https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/github.svg",
+    "Docker": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg",
+    "VS Code": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg",
+    "Google Colab": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecolab/googlecolab-original.svg"
+  };
+
+  const row1Skills = [
+    { name: "Python" },
+    { name: "ML & DL" },
+    { name: "TensorFlow" },
+    { name: "Scikit-Learn" },
+    { name: "NLP" },
+    { name: "Transformers" },
+    { name: "LLMs" },
+    { name: "Prompt Engineering" },
+    { name: "LangChain" },
+    { name: "RAG" },
+    { name: "AI Agents" }
+  ];
+
+  const row2Skills = [
+    { name: "Node.js" },
+    { name: "Express" },
+    { name: "FastAPI" },
+    { name: "REST APIs" },
+    { name: "JWT" },
+    { name: "MongoDB" },
+    { name: "MySQL" }
+  ];
+
+  const row3Skills = [
+    { name: "React" },
+    { name: "HTML" },
+    { name: "CSS" },
+    { name: "JavaScript" },
+    { name: "TailwindCSS" },
+    { name: "Git" },
+    { name: "GitHub" },
+    { name: "Docker" },
+    { name: "VS Code" },
+    { name: "Google Colab" }
+  ];
+
+  const renderMarqueeRow = (skills, direction = 'forward', speed = '25s') => {
+    // Duplicate skills list to ensure seamless looping
+    const duplicatedSkills = [...skills, ...skills, ...skills];
+    const marqueeClass = direction === 'forward' ? 'animate-[marquee_30s_linear_infinite]' : 'animate-[marquee-reverse_30s_linear_infinite]';
 
     return (
-        <section id="skills" className="py-24 px-6 bg-[#0c0c0e]">
-            <div className="container mx-auto">
-                <div className="mb-16">
-                    <h2 className="text-3xl font-bold mb-4">Technical <span className="gradient-text">Skills</span></h2>
+      <div className="relative w-full overflow-hidden py-3 select-none flex">
+        {/* Shadow overlays on sides */}
+        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#050816] to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#050816] to-transparent z-10 pointer-events-none" />
+
+        <div 
+          className={`flex gap-4 shrink-0 hover:[animation-play-state:paused] ${marqueeClass}`}
+          style={{ animationDuration: speed }}
+        >
+          {duplicatedSkills.map((skill, idx) => {
+            const iconData = skillIcons[skill.name];
+            const isUrl = typeof iconData === 'string';
+            return (
+              <div
+                key={idx}
+                className="glass-card px-5 py-3.5 rounded-2xl border border-white/5 bg-[#111827]/40 flex items-center gap-3 hover:border-accent/30 hover:bg-[#111827]/60 hover:scale-103 transition-all duration-300 pointer-events-auto"
+              >
+                <div className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center text-accent">
+                  {isUrl ? (
+                    <img 
+                      src={iconData} 
+                      alt={skill.name} 
+                      className={`w-5 h-5 object-contain ${skill.name === 'GitHub' || skill.name === 'Express' ? 'invert' : ''}`} 
+                    />
+                  ) : (
+                    (() => {
+                      const Icon = iconData || Code2;
+                      return <Icon size={16} />;
+                    })()
+                  )}
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {categories.map((cat) => (
-                        <SkillCard key={cat.title} {...cat} />
-                    ))}
-                </div>
-            </div>
-        </section>
+                <span className="text-sm font-semibold text-slate-200">{skill.name}</span>
+              </div>
+            );
+          })}
+        </div>
+      </div>
     );
+  };
+
+  return (
+    <section id="skills" className="py-24 px-6 bg-[#050816]/60 relative overflow-hidden">
+      {/* Inline styles for scrolling keyframes */}
+      <style>{`
+        @keyframes marquee {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-33.33%); }
+        }
+        @keyframes marquee-reverse {
+          0% { transform: translateX(-33.33%); }
+          100% { transform: translateX(0); }
+        }
+      `}</style>
+
+      <div className="container mx-auto max-w-6xl">
+        <div className="text-center mb-16">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="text-3xl sm:text-4xl font-extrabold tracking-tight"
+          >
+            Technical <span className="gradient-text">Skills</span>
+          </motion.h2>
+          <div className="w-12 h-[2px] bg-accent mx-auto mt-4 rounded-full" />
+        </div>
+
+        {/* Carousel Tracks */}
+        <div className="space-y-6 flex flex-col items-center">
+          {/* Row 1: AI (forward) */}
+          <div className="w-full max-w-5xl">
+            <span className="text-[10px] text-slate-500 font-bold uppercase tracking-widest pl-2 mb-2 block">AI &amp; Machine Learning</span>
+            {renderMarqueeRow(row1Skills, 'forward', '35s')}
+          </div>
+
+          {/* Row 2: Backend & DB (reverse) */}
+          <div className="w-full max-w-5xl">
+            <span className="text-[10px] text-slate-500 font-bold uppercase tracking-widest pl-2 mb-2 block">Backend &amp; Databases</span>
+            {renderMarqueeRow(row2Skills, 'reverse', '25s')}
+          </div>
+
+          {/* Row 3: Frontend & Tools (forward) */}
+          <div className="w-full max-w-5xl">
+            <span className="text-[10px] text-slate-500 font-bold uppercase tracking-widest pl-2 mb-2 block">Frontend &amp; Ecosystem Tools</span>
+            {renderMarqueeRow(row3Skills, 'forward', '30s')}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default Skills;
