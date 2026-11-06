@@ -1,14 +1,14 @@
 # Nithish Kumar G | Portfolio
 
-A modern, highly interactive, and visually stunning developer portfolio showcasing expertise in Full-Stack Web Development (MERN Stack) and Artificial Intelligence (Machine Learning, LLMs, RAG).
+A modern, highly interactive, and visually stunning developer portfolio showcasing expertise in Full-Stack Web Development (MERN Stack), Python, and FastAPI.
 
 ## 🚀 Live Demo
 Visit the live portfolio: [nk-myfolio.vercel.app](https://nk-myfolio.vercel.app/)
 
 ## ✨ Key Features
-- **Interactive Neural Network Brain**: Custom interactive 3D SVG neural network brain graphic in the Hero section with real-time synapse signal animations.
-- **Curated Tech Skills Marquee**: Dynamic looping marquees featuring original brand SVG logos (React, Node, Python, TensorFlow, TailwindCSS, etc.) with smart dark-theme filters.
-- **Professional Projects Grid**: Detailed breakdowns of AI, Machine Learning, and Full-Stack web projects including case studies.
+- **Interactive Full Stack Developer Console**: Interactive 3D glassmorphic terminal and architecture card in the Hero section with live tech stack details.
+- **Curated Tech Skills Marquee**: Dynamic looping marquees featuring original brand SVG logos (Node.js, Express, Python, FastAPI, React, MongoDB, etc.) with smart dark-theme filters.
+- **Professional Projects Grid**: Detailed breakdowns of Full Stack, MERN, and FastAPI web projects including case studies.
 - **Fluid Layout & Glassmorphism**: Stunning premium aesthetics utilizing vanilla CSS, Tailwind, custom particles, and Framer Motion.
 - **Integrated Contact Form**: Direct client inquiry form powered by EmailJS API with real-time validation and active social handles (LinkedIn, Email, Phone).
 

@@ -63,10 +63,10 @@ const About = () => {
               className="space-y-6 text-slate-300 leading-relaxed text-base sm:text-lg text-left"
             >
               <p>
-                I am a <strong className="text-white font-semibold">Full Stack Developer</strong> and <strong className="text-white font-semibold">AI Enthusiast</strong> currently pursuing MCA, passionate about building real-world Web applications, intelligent applications powered by Machine Learning, Generative AI, Retrieval-Augmented Generation (RAG), and Large Language Models.
+                I am a <strong className="text-white font-semibold">Full Stack Developer</strong> currently pursuing MCA, passionate about building modern web applications, scalable REST APIs, and responsive digital solutions using the <strong className="text-white font-semibold">MERN Stack</strong> (MongoDB, Express, React, Node.js), <strong className="text-white font-semibold">Python</strong>, and <strong className="text-white font-semibold">FastAPI</strong>.
               </p>
               <p>
-                My journey started with full-stack web development using the MERN stack and gradually evolved toward Artificial Intelligence, where I now focus on developing AI-powered solutions, agentic workflows, and enterprise-ready applications.
+                My expertise spans both interactive frontend interfaces crafted with React and Tailwind CSS, and robust backend engineering with Node.js and FastAPI. I focus on developing clean, maintainable architectures, secure JWT authentication workflows, and optimized database solutions across MongoDB and MySQL.
               </p>
             </motion.div>
 

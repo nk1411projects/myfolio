@@ -1,86 +1,69 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { 
-  Cpu, FileCode, Sparkles, Terminal, 
-  Search, Workflow, Link2, Code2
+  Link2, Code2, ShieldCheck, Database, Server, Layers
 } from 'lucide-react';
 
 const Skills = () => {
   // Mapping skills to original logo URLs or Lucide Icons
   const skillIcons = {
-    // Row 1: AI
-    "Python": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg",
-    "ML & DL": Cpu,
-    "TensorFlow": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg",
-    "Scikit-Learn": "https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/scikitlearn.svg",
-    "NLP": FileCode,
-    "Transformers": "https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/huggingface.svg",
-    "LLMs": Sparkles,
-    "Prompt Engineering": Terminal,
-    "LangChain": "https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/langchain.svg",
-    "RAG": Search,
-    "AI Agents": Workflow,
-    // Row 2: Backend
+    // Row 1: Backend & APIs
     "Node.js": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg",
     "Express": "https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/express.svg",
+    "Python": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg",
     "FastAPI": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg",
     "REST APIs": Link2,
     "JWT": "https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/jsonwebtokens.svg",
+    "Postman": "https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/postman.svg",
+    "Authentication": ShieldCheck,
+    // Row 2: Frontend Engineering
+    "React": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
+    "JavaScript": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg",
+    "HTML5": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg",
+    "CSS3": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg",
+    "TailwindCSS": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
+    "Vite": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitejs/vitejs-original.svg",
+    // Row 3: Databases & DevOps Tools
     "MongoDB": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg",
     "MySQL": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg",
-    // Row 3: Frontend & Tools
-    "React": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
-    "HTML": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg",
-    "CSS": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg",
-    "JavaScript": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg",
-    "TailwindCSS": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
     "Git": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg",
     "GitHub": "https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/github.svg",
     "Docker": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg",
-    "VS Code": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg",
-    "Google Colab": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecolab/googlecolab-original.svg"
+    "VS Code": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg"
   };
 
   const row1Skills = [
-    { name: "Python" },
-    { name: "ML & DL" },
-    { name: "TensorFlow" },
-    { name: "Scikit-Learn" },
-    { name: "NLP" },
-    { name: "Transformers" },
-    { name: "LLMs" },
-    { name: "Prompt Engineering" },
-    { name: "LangChain" },
-    { name: "RAG" },
-    { name: "AI Agents" }
-  ];
-
-  const row2Skills = [
     { name: "Node.js" },
     { name: "Express" },
+    { name: "Python" },
     { name: "FastAPI" },
     { name: "REST APIs" },
     { name: "JWT" },
-    { name: "MongoDB" },
-    { name: "MySQL" }
+    { name: "Postman" },
+    { name: "Authentication" }
+  ];
+
+  const row2Skills = [
+    { name: "React" },
+    { name: "JavaScript" },
+    { name: "HTML5" },
+    { name: "CSS3" },
+    { name: "TailwindCSS" },
+    { name: "Vite" }
   ];
 
   const row3Skills = [
-    { name: "React" },
-    { name: "HTML" },
-    { name: "CSS" },
-    { name: "JavaScript" },
-    { name: "TailwindCSS" },
+    { name: "MongoDB" },
+    { name: "MySQL" },
     { name: "Git" },
     { name: "GitHub" },
     { name: "Docker" },
-    { name: "VS Code" },
-    { name: "Google Colab" }
+    { name: "VS Code" }
   ];
 
   const renderMarqueeRow = (skills, direction = 'forward', speed = '25s') => {
     // Duplicate skills list to ensure seamless looping
-    const duplicatedSkills = [...skills, ...skills, ...skills];
+    const duplicatedSkills = [...skills, ...skills, ...skills, ...skills];
     const marqueeClass = direction === 'forward' ? 'animate-[marquee_30s_linear_infinite]' : 'animate-[marquee-reverse_30s_linear_infinite]';
 
     return (
@@ -154,22 +137,22 @@ const Skills = () => {
 
         {/* Carousel Tracks */}
         <div className="space-y-6 flex flex-col items-center">
-          {/* Row 1: AI (forward) */}
+          {/* Row 1: Backend & APIs (forward) */}
           <div className="w-full max-w-5xl">
-            <span className="text-[10px] text-slate-500 font-bold uppercase tracking-widest pl-2 mb-2 block">AI &amp; Machine Learning</span>
-            {renderMarqueeRow(row1Skills, 'forward', '35s')}
+            <span className="text-[10px] text-slate-500 font-bold uppercase tracking-widest pl-2 mb-2 block">Backend &amp; API Architecture</span>
+            {renderMarqueeRow(row1Skills, 'forward', '30s')}
           </div>
 
-          {/* Row 2: Backend & DB (reverse) */}
+          {/* Row 2: Frontend Engineering (reverse) */}
           <div className="w-full max-w-5xl">
-            <span className="text-[10px] text-slate-500 font-bold uppercase tracking-widest pl-2 mb-2 block">Backend &amp; Databases</span>
-            {renderMarqueeRow(row2Skills, 'reverse', '25s')}
+            <span className="text-[10px] text-slate-500 font-bold uppercase tracking-widest pl-2 mb-2 block">Frontend Engineering</span>
+            {renderMarqueeRow(row2Skills, 'reverse', '26s')}
           </div>
 
-          {/* Row 3: Frontend & Tools (forward) */}
+          {/* Row 3: Databases & DevOps Tools (forward) */}
           <div className="w-full max-w-5xl">
-            <span className="text-[10px] text-slate-500 font-bold uppercase tracking-widest pl-2 mb-2 block">Frontend &amp; Ecosystem Tools</span>
-            {renderMarqueeRow(row3Skills, 'forward', '30s')}
+            <span className="text-[10px] text-slate-500 font-bold uppercase tracking-widest pl-2 mb-2 block">Databases &amp; DevOps Tools</span>
+            {renderMarqueeRow(row3Skills, 'forward', '28s')}
           </div>
         </div>
       </div>

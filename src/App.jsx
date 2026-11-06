@@ -15,7 +15,7 @@ import CustomCursor from './components/CustomCursor';
 function App() {
   return (
     <div className="relative min-h-screen text-text-primary scroll-smooth selection:bg-accent/30 overflow-x-hidden">
-      {/* Global Interactive Neural Network Canvas Background */}
+      {/* Interactive Particle Canvas Mesh Background */}
       <NeuralNetworkBackground />
 
       {/* Smooth Cursor Follower (Self-disables on Touch screens) */}

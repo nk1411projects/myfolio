@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Briefcase, Zap, Target, Search, BookOpen } from 'lucide-react';
+import { Briefcase, Zap, Target, Database, BookOpen } from 'lucide-react';
 import { portfolioData } from '../data/portfolio';
 
 const Experience = () => {
@@ -18,9 +18,9 @@ const Experience = () => {
       desc: 'Constructing robust backend endpoints and async API routes using FastAPI and REST standards for rapid data flow.' 
     },
     { 
-      icon: Search, 
-      title: 'Intelligent AI Applications', 
-      desc: 'Integrating NLP parsers, ML classifier models, and SHAP explainability matrices directly into web dashboards.' 
+      icon: Database, 
+      title: 'Database & Schema Architecture', 
+      desc: 'Designing optimized relational schemas in MySQL and flexible document collections in MongoDB with indexing and aggregations.' 
     },
     { 
       icon: BookOpen, 

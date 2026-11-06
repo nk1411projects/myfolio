@@ -1,56 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Github, Linkedin, ArrowRight, Download } from 'lucide-react';
+import { Github, Linkedin, ArrowRight, Download, Code2, Terminal, Layers, Database, Server } from 'lucide-react';
 import { portfolioData } from '../data/portfolio';
-
-const brainNodes = [
-  { x: 55, y: 55, size: 2.5, delay: '0.2s' },
-  { x: 70, y: 40, size: 2, delay: '0.7s' },
-  { x: 85, y: 35, size: 3.5, delay: '1.2s' },
-  { x: 60, y: 70, size: 3, delay: '0.4s' },
-  { x: 80, y: 65, size: 2, delay: '0.9s' },
-  { x: 100, y: 55, size: 3, delay: '0.1s' },
-  { x: 50, y: 85, size: 2, delay: '1.5s' },
-  { x: 70, y: 90, size: 3.5, delay: '1.8s' },
-  { x: 105, y: 30, size: 3, delay: '0.5s' },
-  { x: 125, y: 32, size: 2, delay: '0.8s' },
-  { x: 145, y: 40, size: 3.5, delay: '1.4s' },
-  { x: 160, y: 55, size: 3, delay: '0.6s' },
-  { x: 170, y: 75, size: 2, delay: '1.1s' },
-  { x: 120, y: 50, size: 3, delay: '2.0s' },
-  { x: 140, y: 60, size: 2, delay: '0.3s' },
-  { x: 155, y: 75, size: 3.5, delay: '0.9s' },
-  { x: 90, y: 105, size: 3, delay: '0.8s' },
-  { x: 110, y: 100, size: 2, delay: '1.3s' },
-  { x: 130, y: 105, size: 3, delay: '0.6s' },
-  { x: 100, y: 120, size: 2, delay: '1.7s' },
-  { x: 120, y: 120, size: 3.5, delay: '0.2s' },
-  { x: 150, y: 110, size: 3, delay: '1.1s' },
-  { x: 165, y: 105, size: 2, delay: '1.6s' },
-  { x: 145, y: 128, size: 3, delay: '0.7s' },
-  { x: 163, y: 125, size: 2, delay: '2.1s' },
-  { x: 115, y: 138, size: 3.5, delay: '0.4s' },
-  { x: 120, y: 155, size: 3, delay: '1.0s' }
-];
-
-const brainConnections = [];
-for (let i = 0; i < brainNodes.length; i++) {
-  for (let j = i + 1; j < brainNodes.length; j++) {
-    const dx = brainNodes[i].x - brainNodes[j].x;
-    const dy = brainNodes[i].y - brainNodes[j].y;
-    const dist = Math.sqrt(dx * dx + dy * dy);
-    if (dist < 32) {
-      brainConnections.push({
-        x1: brainNodes[i].x,
-        y1: brainNodes[i].y,
-        x2: brainNodes[j].x,
-        y2: brainNodes[j].y,
-        delay: ((i + j) % 10) * 0.2 + 's',
-        isSignal: (i + j) % 5 === 0
-      });
-    }
-  }
-}
 
 const Hero = () => {
   const [roleIndex, setRoleIndex] = useState(0);
@@ -63,7 +14,11 @@ const Hero = () => {
   // Typewriter effect logic
   useEffect(() => {
     let timer;
-    const rolesList = ["Full Stack Developer", "AI Enthusiast"];
+    const rolesList = [
+      "Full Stack Developer",
+      "MERN Stack Developer",
+      "Python & FastAPI Developer"
+    ];
     const currentRole = rolesList[roleIndex];
 
     if (isDeleting) {
@@ -95,7 +50,7 @@ const Hero = () => {
     const rect = blobRef.current.getBoundingClientRect();
     const x = e.clientX - rect.left - rect.width / 2;
     const y = e.clientY - rect.top - rect.height / 2;
-    setMousePos({ x: x * 0.15, y: y * 0.15 });
+    setMousePos({ x: x * 0.12, y: y * 0.12 });
   };
 
   const handleMouseLeave = () => {
@@ -137,7 +92,7 @@ const Hero = () => {
             </h2>
 
             <p className="text-base sm:text-lg text-text-muted mb-10 max-w-xl leading-relaxed">
-              Building Full stack applications and AI applications that solve real-world problems.
+              Building modern Full Stack web applications, MERN solutions, and robust APIs with Python &amp; FastAPI to solve real-world problems.
             </p>
           </motion.div>
 
@@ -190,147 +145,131 @@ const Hero = () => {
           </motion.div>
         </div>
 
-        {/* Right: Detailed Brain Neural Network */}
-        <div className="lg:col-span-5 flex justify-center items-center relative h-[350px] sm:h-[450px]">
+        {/* Right: Modern Full Stack Developer Console Card */}
+        <div className="lg:col-span-5 flex justify-center items-center relative h-[380px] sm:h-[460px]">
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
+            initial={{ opacity: 0, scale: 0.85 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             ref={blobRef}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
-            className="relative w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] flex items-center justify-center cursor-grab"
+            className="relative w-[320px] sm:w-[420px] flex items-center justify-center cursor-grab"
             style={{
               x: mousePos.x,
               y: mousePos.y,
               transition: 'transform 0.2s cubic-bezier(0.25, 1, 0.5, 1)'
             }}
           >
-            {/* Inline keyframe animations */}
-            <style>{`
-              @keyframes pulse-node {
-                0%, 100% { transform: scale(1); opacity: 0.7; }
-                50% { transform: scale(1.3); opacity: 1; filter: drop-shadow(0 0 6px rgba(59, 130, 246, 0.8)); }
-              }
-              @keyframes pulse-line {
-                0%, 100% { opacity: 0.15; }
-                50% { opacity: 0.4; }
-              }
-              @keyframes signal-flow {
-                to { stroke-dashoffset: -40; }
-              }
-              .neural-node {
-                transform-origin: center;
-                animation: pulse-node 3s infinite ease-in-out;
-              }
-              .neural-line {
-                animation: pulse-line 4s infinite ease-in-out;
-              }
-              .signal-line {
-                stroke-dasharray: 4, 12;
-                animation: signal-flow 2s infinite linear;
-              }
-            `}</style>
+            {/* Glowing ambient background */}
+            <div className="absolute w-[95%] h-[95%] bg-gradient-to-tr from-[#3B82F6]/20 via-[#6366F1]/15 to-[#8B5CF6]/20 rounded-3xl blur-[50px] opacity-40 animate-pulse-glow" />
 
-            {/* Glowing background */}
-            <div className="absolute w-[90%] h-[90%] bg-gradient-to-tr from-[#3B82F6]/20 to-[#8B5CF6]/20 rounded-full blur-[50px] opacity-35 animate-pulse-glow" />
-
-            {/* Main Circle Container containing Brain SVG */}
-            <div className="absolute w-[95%] h-[95%] rounded-full border border-white/5 bg-[#090D1A]/50 backdrop-blur-2xl flex items-center justify-center p-4 shadow-2xl hover:border-accent/25 transition-colors overflow-hidden">
+            {/* Central Terminal / IDE Card */}
+            <div className="relative w-full rounded-2xl border border-white/10 bg-[#090D1A]/85 backdrop-blur-xl shadow-2xl overflow-hidden hover:border-accent/30 transition-all duration-300">
               
-              {/* Detailed Brain SVG */}
-              <svg 
-                viewBox="35 20 145 145" 
-                className="w-full h-full opacity-85 select-none"
-              >
-                {/* Brain Silhouette Path in background */}
-                <path 
-                  d="M 55,85 C 35,65 35,45 55,40 C 70,30 85,25 100,30 C 120,25 145,30 160,45 C 175,60 175,80 160,95 C 165,105 160,120 145,130 C 135,135 120,130 115,125 C 115,140 110,155 100,155 C 95,140 95,125 95,120 C 80,120 65,110 60,100 C 50,100 45,90 45,85 Z" 
-                  fill="url(#brain-glow-fill)"
-                  stroke="url(#brain-glow-stroke)"
-                  strokeWidth="1.5"
-                  strokeOpacity="0.12"
-                  className="transition-opacity duration-300"
-                />
-
-                <defs>
-                  <linearGradient id="brain-glow-fill" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.04" />
-                    <stop offset="100%" stopColor="#8B5CF6" stopOpacity="0.04" />
-                  </linearGradient>
-                  <linearGradient id="brain-glow-stroke" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#3B82F6" />
-                    <stop offset="100%" stopColor="#8B5CF6" />
-                  </linearGradient>
-                </defs>
-
-                {/* Synaptic Connections (Lines) */}
-                {brainConnections.map((conn, idx) => (
-                  <g key={`conn-${idx}`}>
-                    <line
-                      x1={conn.x1}
-                      y1={conn.y1}
-                      x2={conn.x2}
-                      y2={conn.y2}
-                      stroke="rgba(147, 197, 253, 0.2)"
-                      strokeWidth="0.8"
-                      className="neural-line"
-                      style={{ animationDelay: conn.delay }}
-                    />
-                    {conn.isSignal && (
-                      <line
-                        x1={conn.x1}
-                        y1={conn.y1}
-                        x2={conn.x2}
-                        y2={conn.y2}
-                        stroke="#60A5FA"
-                        strokeWidth="1.2"
-                        strokeLinecap="round"
-                        className="signal-line"
-                      />
-                    )}
-                  </g>
-                ))}
-
-                {/* Neurons (Nodes) */}
-                {brainNodes.map((node, idx) => (
-                  <circle
-                    key={`node-${idx}`}
-                    cx={node.x}
-                    cy={node.y}
-                    r={node.size}
-                    fill="url(#brain-glow-stroke)"
-                    className="neural-node"
-                    style={{ 
-                      animationDelay: node.delay,
-                      animationDuration: '2.5s'
-                    }}
-                  />
-                ))}
-              </svg>
-
-              {/* Glassmorphic Code Snippet Overlay */}
-              <div className="absolute w-[80%] max-w-[260px] rounded-2xl border border-white/10 bg-[#0d1527]/75 backdrop-blur-md p-4 shadow-xl flex flex-col justify-center items-center text-center">
-                <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-accent to-secondary-accent flex items-center justify-center text-white font-black text-sm mb-3 shadow-md shadow-accent/10">
-                  AI
+              {/* Window Header */}
+              <div className="flex items-center justify-between px-4 py-3 border-b border-white/5 bg-[#0D1527]/90">
+                <div className="flex items-center gap-2">
+                  <div className="w-3 h-3 rounded-full bg-red-500/80" />
+                  <div className="w-3 h-3 rounded-full bg-amber-500/80" />
+                  <div className="w-3 h-3 rounded-full bg-emerald-500/80" />
                 </div>
-                <code className="text-[10px] sm:text-xs text-accent font-mono mb-1 w-full text-left">const developer = &#123;</code>
-                <code className="text-[10px] sm:text-xs text-slate-300 font-mono ml-4 w-full text-left">status: "MCA Student",</code>
-                <code className="text-[10px] sm:text-xs text-slate-300 font-mono ml-4 w-full text-left">focus: "FullStack &amp; AI"</code>
-                <code className="text-[10px] sm:text-xs text-accent font-mono w-full text-left">&#125;;</code>
+                <div className="flex items-center gap-1.5 text-xs text-slate-400 font-mono">
+                  <Code2 size={13} className="text-accent" />
+                  <span>developer.config.js</span>
+                </div>
+                <div className="text-[10px] text-slate-500 font-mono">UTF-8</div>
+              </div>
+
+              {/* Code Content */}
+              <div className="p-5 font-mono text-xs sm:text-[13px] leading-relaxed text-left space-y-2">
+                <div className="text-slate-500">// Full Stack &amp; Backend Architecture</div>
+                <div>
+                  <span className="text-purple-400 font-semibold">const</span>{' '}
+                  <span className="text-blue-300 font-semibold">developer</span>{' '}
+                  <span className="text-white">=</span>{' '}
+                  <span className="text-white">&#123;</span>
+                </div>
+                
+                <div className="pl-4">
+                  <span className="text-slate-400">name:</span>{' '}
+                  <span className="text-emerald-400">"{portfolioData.name}"</span>,
+                </div>
+                
+                <div className="pl-4">
+                  <span className="text-slate-400">specialization:</span>{' '}
+                  <span className="text-emerald-400">"Full Stack &amp; MERN"</span>,
+                </div>
+
+                <div className="pl-4">
+                  <span className="text-slate-400">backend:</span>{' '}
+                  <span className="text-white">[</span>
+                  <span className="text-amber-300">"Node.js"</span>,{' '}
+                  <span className="text-amber-300">"Express"</span>,{' '}
+                  <span className="text-amber-300">"FastAPI"</span>,{' '}
+                  <span className="text-amber-300">"Python"</span>
+                  <span className="text-white">]</span>,
+                </div>
+
+                <div className="pl-4">
+                  <span className="text-slate-400">frontend:</span>{' '}
+                  <span className="text-white">[</span>
+                  <span className="text-cyan-300">"React"</span>,{' '}
+                  <span className="text-cyan-300">"TailwindCSS"</span>
+                  <span className="text-white">]</span>,
+                </div>
+
+                <div className="pl-4">
+                  <span className="text-slate-400">databases:</span>{' '}
+                  <span className="text-white">[</span>
+                  <span className="text-emerald-300">"MongoDB"</span>,{' '}
+                  <span className="text-emerald-300">"MySQL"</span>
+                  <span className="text-white">]</span>,
+                </div>
+
+                <div className="pl-4">
+                  <span className="text-slate-400">status:</span>{' '}
+                  <span className="text-accent font-semibold">"Ready to Build"</span>
+                </div>
+
+                <div className="text-white">&#125;;</div>
+
+                {/* Status Bar */}
+                <div className="pt-3 mt-3 border-t border-white/5 flex items-center justify-between text-[11px] text-slate-400">
+                  <div className="flex items-center gap-1.5 text-emerald-400">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                    <span>REST APIs Active</span>
+                  </div>
+                  <span className="text-slate-500 font-mono">FastAPI • MERN • JWT</span>
+                </div>
               </div>
             </div>
 
-            {/* Orbiting Particle Rings */}
-            <div className="absolute w-[110%] h-[110%] rounded-full border border-dashed border-white/5 animate-orbit pointer-events-none" />
-            <div className="absolute w-[110%] h-[110%] rounded-full pointer-events-none">
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-accent shadow-[0_0_12px_#3B82F6]" />
-            </div>
+            {/* Floating Tech Chips */}
+            <motion.div 
+              animate={{ y: [0, -6, 0] }}
+              transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+              className="absolute -top-4 -right-4 glass-card px-3.5 py-1.5 rounded-xl border border-white/10 bg-[#111827]/90 shadow-xl flex items-center gap-2"
+            >
+              <div className="w-6 h-6 rounded-lg bg-accent/20 flex items-center justify-center text-accent">
+                <Server size={13} />
+              </div>
+              <span className="text-xs font-semibold text-white">FastAPI &amp; Python</span>
+            </motion.div>
 
-            <div className="absolute w-[122%] h-[122%] rounded-full border border-dashed border-white/5 animate-orbit-reverse pointer-events-none" />
-            <div className="absolute w-[122%] h-[122%] rounded-full pointer-events-none" style={{ animation: 'orbit-reverse 45s infinite linear' }}>
-              <div className="absolute bottom-0 right-1/4 w-2.5 h-2.5 rounded-full bg-secondary-accent shadow-[0_0_12px_#8B5CF6]" />
-            </div>
+            <motion.div 
+              animate={{ y: [0, 6, 0] }}
+              transition={{ repeat: Infinity, duration: 4.5, ease: "easeInOut", delay: 1 }}
+              className="absolute -bottom-4 -left-4 glass-card px-3.5 py-1.5 rounded-xl border border-white/10 bg-[#111827]/90 shadow-xl flex items-center gap-2"
+            >
+              <div className="w-6 h-6 rounded-lg bg-emerald-500/20 flex items-center justify-center text-emerald-400">
+                <Database size={13} />
+              </div>
+              <span className="text-xs font-semibold text-white">MongoDB &amp; MySQL</span>
+            </motion.div>
+
+            {/* Orbiting Particle Rings */}
+            <div className="absolute w-[114%] h-[114%] rounded-3xl border border-dashed border-white/5 animate-orbit pointer-events-none" />
           </motion.div>
         </div>
       </div>

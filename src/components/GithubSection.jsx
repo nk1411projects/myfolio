@@ -20,10 +20,19 @@ const GithubSection = () => {
         setProfileData(profileJson);
 
         // Fetch repos
-        const reposRes = await fetch('https://api.github.com/users/nk1411projects/repos?sort=updated&per_page=6');
+        const reposRes = await fetch('https://api.github.com/users/nk1411projects/repos?sort=updated&per_page=15');
         if (!reposRes.ok) throw new Error('API failure');
         const reposJson = await reposRes.json();
-        setRepos(reposJson);
+        
+        // Filter out AI / ML related repositories to keep portfolio focused strictly on Full Stack & Backend
+        const aiKeywords = ['ai', 'ml', 'machine-learning', 'attrition', 'phishing', 'deep-learning', 'dl', 'shap'];
+        const filteredRepos = reposJson.filter(repo => {
+          const name = (repo.name || '').toLowerCase();
+          const desc = (repo.description || '').toLowerCase();
+          return !aiKeywords.some(kw => name.includes(kw) || desc.includes(kw));
+        }).slice(0, 6);
+
+        setRepos(filteredRepos.length > 0 ? filteredRepos : reposJson.slice(0, 6));
         setError(false);
       } catch (err) {
         console.error('Github API error:', err);
@@ -31,33 +40,33 @@ const GithubSection = () => {
         // Fallback mock repos in case of API rate limiting
         setRepos([
           {
-            name: "AI-Resume-Screening-System",
-            description: "Intelligent PDF resume parser and semantic job matching system using NLP and TF-IDF similarity vectors.",
-            stargazers_count: 3,
-            forks_count: 1,
-            language: "Python",
-            html_url: "https://github.com/nk1411projects"
-          },
-          {
-            name: "Attrition-Prediction-SHAP",
-            description: "Explainable employee turnover machine learning system utilizing Scikit-learn pipelines and SHAP dashboards.",
-            stargazers_count: 2,
-            forks_count: 0,
-            language: "Python",
-            html_url: "https://github.com/nk1411projects"
-          },
-          {
-            name: "Ticket-Management-Portal",
+            name: "Complaint-Management-System",
             description: "Full stack MERN web portal equipped with secure JWT cookies and granular Role-Based Access Control policies.",
             stargazers_count: 4,
             forks_count: 2,
             language: "JavaScript",
-            html_url: "https://github.com/nk1411projects"
+            html_url: "https://github.com/nk1411projects/Complaint-Management-System"
           },
           {
-            name: "Phishing-Detector-ML",
-            description: "Lexical feature extractor and Random Forest classifier training pipeline for phishing URL classification.",
+            name: "eCart",
+            description: "Multi-vendor responsive e-commerce storefront with shopping cart state and store manager dashboard.",
+            stargazers_count: 3,
+            forks_count: 1,
+            language: "JavaScript",
+            html_url: "https://github.com/nk1411projects/eCart"
+          },
+          {
+            name: "GroceryApp",
+            description: "Full-featured digital grocery ordering application featuring dynamic item calculation and cart management.",
             stargazers_count: 2,
+            forks_count: 0,
+            language: "JavaScript",
+            html_url: "https://github.com/nk1411projects/GroceryApp"
+          },
+          {
+            name: "FastAPI-Backend-Service",
+            description: "High-performance asynchronous Python REST API service utilizing Pydantic models and JWT verification.",
+            stargazers_count: 3,
             forks_count: 1,
             language: "Python",
             html_url: "https://github.com/nk1411projects"

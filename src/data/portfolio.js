@@ -1,7 +1,7 @@
 export const portfolioData = {
     name: "Nithish Kumar G",
-    roles: ["Full Stack Developer", "AI Enthusiast", "MCA Student"],
-    summary: "I am a Full Stack Developer and AI Enthusiast currently pursuing MCA, passionate about building real-world Web applications, intelligent applications powered by Machine Learning, Generative AI, Retrieval-Augmented Generation (RAG), and Large Language Models. My journey started with full-stack web development using the MERN stack and gradually evolved toward Artificial Intelligence, where I now focus on developing AI-powered solutions, agentic workflows, and enterprise-ready applications.",
+    roles: ["Full Stack Developer", "MERN Stack Specialist", "Python & FastAPI Developer"],
+    summary: "I am a dedicated Full Stack Developer currently pursuing MCA, specializing in the MERN stack (MongoDB, Express.js, React, Node.js), Python, and FastAPI. Passionate about engineering high-performance web applications, architecting scalable RESTful APIs, and building responsive, user-friendly digital experiences. I bring hands-on experience in database modeling, secure authentication systems, and modern frontend design.",
     email: "nithishkumar652004@gmail.com",
     phone: "8825627811",
     location: "Tamil Nadu, India",
@@ -12,51 +12,44 @@ export const portfolioData = {
     experience: {
         title: "Freelancer",
         period: "2024 - Present",
-        description: "Designing, building, and deploying real-world web applications and intelligent data systems. Specialized in integrating the MERN stack with modern AI frameworks and REST APIs to deliver customized, responsive solutions for clients.",
+        description: "Designing, building, and deploying real-world web applications and scalable backend systems. Specialized in developing full-stack solutions with the MERN stack, Python, FastAPI, and robust REST APIs to deliver secure, performant, and responsive products.",
         points: [
-            "Developing custom full-stack web portals with secure JWT cookie authentication and robust database routing.",
-            "Integrating machine learning predictive modules and NLP engines into client facing web applications.",
-            "Creating responsive frontend templates and admin dashboards powered by React and Tailwind CSS.",
-            "Building high-performance backend pipelines using FastAPI, Express.js, Node.js, and MongoDB/MySQL."
+            "Developing custom full-stack web portals with secure JWT cookie authentication, role-based access control, and robust database routing.",
+            "Architecting and implementing high-speed RESTful APIs using FastAPI and Express.js for seamless data synchronization.",
+            "Creating responsive frontend templates and interactive admin dashboards powered by React and Tailwind CSS.",
+            "Engineering optimized database schemas and performant queries utilizing MongoDB and MySQL."
         ]
     },
 
     skills: {
-        ai: [
-            { name: "Python" },
-            { name: "ML & DL" },
-            { name: "TensorFlow" },
-            { name: "Scikit-Learn" },
-            { name: "NLP" },
-            { name: "Transformers" },
-            { name: "LLMs" },
-            { name: "Prompt Engineering" },
-            { name: "LangChain" },
-            { name: "RAG" },
-            { name: "AI Agents" }
-        ],
         backend: [
             { name: "Node.js" },
             { name: "Express" },
+            { name: "Python" },
             { name: "FastAPI" },
             { name: "REST APIs" },
             { name: "JWT" },
-            { name: "MongoDB" },
-            { name: "MySQL" }
+            { name: "Authentication" }
         ],
         frontend: [
             { name: "React" },
+            { name: "JavaScript" },
             { name: "HTML" },
             { name: "CSS" },
-            { name: "JavaScript" },
-            { name: "TailwindCSS" }
+            { name: "TailwindCSS" },
+            { name: "Vite" }
+        ],
+        databases: [
+            { name: "MongoDB" },
+            { name: "MySQL" },
+            { name: "Mongoose" }
         ],
         tools: [
             { name: "Git" },
             { name: "GitHub" },
             { name: "Docker" },
-            { name: "VS Code" },
-            { name: "Google Colab" }
+            { name: "Postman" },
+            { name: "VS Code" }
         ]
     },
 
@@ -66,7 +59,7 @@ export const portfolioData = {
             institution: "Rathnavel Subramaniam College of Arts and Science",
             duration: "2025 - 2027",
             status: "Current",
-            details: "Specializing in advanced software design, machine learning pipelines, and database optimization algorithms."
+            details: "Specializing in advanced software design, full-stack web architecture, distributed systems, and database optimization algorithms."
         },
         {
             degree: "Bachelor of Computer Applications (BCA)",
@@ -92,94 +85,26 @@ export const portfolioData = {
 
     projects: [
         {
-            title: "AI Resume Screening & Job Matching System",
-            tech: "Python, Streamlit, Scikit-learn, NLP",
-            tag: "AI & NLP",
-            description: "An automated intelligent tool designed to parse PDF resumes, extract technical skills using Natural Language Processing (NLP), and perform semantic matching against job descriptions.",
-            github: "https://github.com/nk1411projects",
-            demo: null,
-            caseStudy: {
-                overview: "The AI Resume Screening & Job Matching System automates the process of screening applications. It extracts text and metadata from PDF resumes, tokenizes and processes them using advanced NLP techniques, and computes semantic similarity against target job descriptions.",
-                problem: "HR departments are overwhelmed with thousands of resumes. Manual screening is extremely time-consuming, highly subjective, and prone to human cognitive bias, often leading to missing out on top-tier candidates.",
-                solution: "Developed a Python application powered by a Streamlit user interface. The system leverages Spacy for Named Entity Recognition (NER) to pull technical skills, TF-IDF and Sentence-Transformers to compute an AI match score, and generates a structured downloadable PDF report outlining missing skills and keyword matches.",
-                techStack: ["Python", "Streamlit", "Scikit-learn", "Spacy", "NLTK", "PyPDF2", "ReportLab"],
-                keyFeatures: [
-                    "Automated multi-format PDF parsing and preprocessing",
-                    "NLP-based custom skill and entity extraction",
-                    "Semantic job description matching using cosine similarity",
-                    "Real-time AI Match Score (0 - 100%)",
-                    "Automated downloadable PDF Match Report generation for HR reviews"
-                ],
-                challenges: "Variations in resume formatting (multi-column tables, text-as-image files, complex PDF outlines) frequently broke text extractors. I overcame this by applying normalized regex pattern filters and implementing a backup layout-aware text parser.",
-                improvements: "Incorporate localized open-source LLMs (e.g., Llama 3) via Ollama to perform contextual semantic reasoning, analyzing not just keyword matching but actual project relevancy."
-            }
-        },
-        {
-            title: "AI Employee Attrition Prediction System",
-            tech: "Python, Streamlit, Scikit-learn, SHAP",
-            tag: "Machine Learning",
-            description: "A machine learning prediction engine analyzing corporate HR metrics to forecast employee turnover risk and provide explainable AI insights using SHAP.",
-            github: "https://github.com/nk1411projects/AI-Employee-Attrition-Prediction",
-            demo: "https://ai-attrition-prediction.streamlit.app/",
-            caseStudy: {
-                overview: "This system provides organizations with proactive insights into talent retention. By feeding employee data (tenure, satisfaction, work-life balance, promotions) into a trained ML model, it predicts attrition likelihood and explains which variables contributed to that result.",
-                problem: "Unexpected employee turnover is expensive, costing organizations up to 2x an employee's annual salary in recruitment and training. Businesses struggle to identify flight risks before they hand in their resignation.",
-                solution: "Built an interactive Streamlit dashboard driven by a Scikit-learn Machine Learning pipeline. Used Random Forest and Logistic Regression models to predict turnover, and integrated SHAP (SHapley Additive exPlanations) to display feature importance at both global and individual levels.",
-                techStack: ["Python", "Streamlit", "Scikit-learn", "SHAP", "Pandas", "Matplotlib", "Seaborn"],
-                keyFeatures: [
-                    "End-to-end ML training and preprocessing pipeline",
-                    "Feature engineering (satisfaction indices, overtime flags)",
-                    "Interactive Streamlit dashboard with filterable widgets",
-                    "Explainable AI (SHAP graphs) justifying model predictions",
-                    "Actionable business insights recommendation cards"
-                ],
-                challenges: "Employee attrition datasets are highly imbalanced, with far fewer 'left' records than 'retained' ones. This caused the model to over-predict retention. I addressed this by applying SMOTE (Synthetic Minority Over-sampling Technique) to balance the target classes during training.",
-                improvements: "Integrate time-series analysis to predict *when* an employee is most likely to exit based on seasonal performance cycles."
-            }
-        },
-        {
-            title: "Phishing Detection using Machine Learning",
-            tech: "Python, Scikit-learn, Streamlit",
-            tag: "Cybersecurity ML",
-            description: "A machine learning classifier that parses URL strings to detect phishing attempts, securing users from malicious redirection and spoofing sites.",
-            github: "https://github.com/nk1411projects/PhishingDetectionTool",
-            demo: null,
-            caseStudy: {
-                overview: "This project uses Machine Learning to analyze URL patterns and identify phishing websites. It extracts structural, lexical, and domain-based features from raw URL inputs to classify them as safe or unsafe in real time.",
-                problem: "Phishing attacks are a primary vector for credential theft and malware. Attackers change subdomains rapidly, meaning traditional static blacklist databases fail to block newly registered threat vectors.",
-                solution: "Designed and trained a Random Forest model on lexical characteristics (presence of '@', double slashes, length, sub-domain counts, HTTPS check). The Streamlit frontend allows users to paste any URL and instantly get a safety rating with probability distribution graphs.",
-                techStack: ["Python", "Scikit-learn", "Streamlit", "Pandas", "URLLib"],
-                keyFeatures: [
-                    "Real-time URL lexical feature extractor",
-                    "Random Forest Classifier achieving high precision",
-                    "Interactive URL checking interface",
-                    "Risk distribution gauge visuals"
-                ],
-                challenges: "Minimizing false positives (classifying clean websites as phishing) was crucial, as blocking safe sites ruins user experience. I resolved this by fine-tuning decision thresholds and adding a whitelist heuristic layer.",
-                improvements: "Develop a Chrome Extension that uses this backend API to check links in real-time as the user browses the web."
-            }
-        },
-        {
-            title: "Ticket Management System",
-            tech: "MongoDB, Express, React, Node.js",
+            title: "Complaint Management System",
+            tech: "React.js, Node.js, Express.js, MongoDB, Tailwind CSS, JWT",
             tag: "Full Stack (MERN)",
-            description: "A robust support ticket system featuring JWT authentication, role-based access control (RBAC), and ticket lifecycle workflow tracking.",
-            github: "https://github.com/nk1411projects",
-            demo: null,
+            description: "A centralized platform where users submit complaints and administrators assign relevant personnel to track, update, and resolve issues effectively.",
+            github: "https://github.com/nk1411projects/Complaint-Management-System",
+            demo: "https://complaint-management-system-amber.vercel.app",
             caseStudy: {
-                overview: "A MERN stack application designed for IT support desks. It enables users to submit, view, and track support requests, while administrators can assign tickets, update resolution status, and view analytic charts.",
-                problem: "Internal support issues are frequently lost in email chains or instant messages, leading to slow response times, missing SLA metrics, and duplicate efforts from support staff.",
-                solution: "Created an enterprise-style ticket tracking portal. Built a React frontend using Tailwind for layout, backed by a Node/Express REST API. Implemented JWT authentication and custom Middlewares to enforce strict Role-Based Access Control (Admin, Agent, User) on Mongo documents.",
+                overview: "A comprehensive MERN stack enterprise portal engineered for issue and grievance tracking. It allows verified users to lodge service requests, while supervisors assign tickets, transition status workflows, and review resolution SLAs in real time.",
+                problem: "Organizations lose productivity and accountability when complaints are filed via fragmented channels like emails or informal messages, causing missed deadlines and untracked accountability.",
+                solution: "Designed and built a centralized web application featuring secure JWT authentication and strict Role-Based Access Control (Admin, Staff, User). Backed by an Express REST API and MongoDB schema with status validation and timestamped audit logs.",
                 techStack: ["React.js", "Node.js", "Express.js", "MongoDB", "Mongoose", "Tailwind CSS", "JWT"],
                 keyFeatures: [
-                    "Secure JWT-in-cookie authentication",
-                    "Granular Role-Based Access Control (RBAC)",
-                    "Ticket assignment, status transitions, and audit logs",
-                    "Responsive dashboard showcasing ticket status widgets",
-                    "Secure MongoDB aggregation queries for reporting metrics"
+                    "User authentication with encrypted passwords and JWT sessions",
+                    "Role-Based Access Control for administrators, staff, and regular users",
+                    "Dynamic ticket tracking dashboard with real-time status transitions",
+                    "Interactive complaint filtering by department, priority, and date",
+                    "Responsive user interface optimized across desktop and mobile screens"
                 ],
-                challenges: "Ensuring routes and data endpoints were completely locked down. I solved this by designing hierarchical authorization guards on the Node backend, preventing horizontal privilege escalation (e.g. users modifying other users' tickets).",
-                improvements: "Integrate email notifications (using Nodemailer) to alert users when their ticket status is updated, and implement a live chat socket layer."
+                challenges: "Preventing unauthorized access across user roles was crucial. I solved this by engineering modular Express authentication and authorization middleware that validates user claims and prevents privilege escalation.",
+                improvements: "Add automated email notifications upon status changes and integrate WebSockets for live status updates."
             }
         },
         {
@@ -187,7 +112,7 @@ export const portfolioData = {
             tech: "React, Node.js, Express, MongoDB, Tailwind",
             tag: "Full Stack (MERN)",
             description: "A responsive online store featuring product filtering, cart management, checkout flows, and a functional administrator management console.",
-            github: "https://github.com/nk1411projects",
+            github: "https://github.com/nk1411projects/eCart",
             demo: "https://nk-ecart.vercel.app/",
             caseStudy: {
                 overview: "ECart is a responsive full-stack e-commerce store. It features full catalog browsing, product searches, cart manipulation, and a protected dashboard for store managers to add or update stock.",
@@ -204,6 +129,52 @@ export const portfolioData = {
                 challenges: "Synchronizing cart items and total prices during fast clicks was causing layout jumps. I solved this by wrapping state logic inside a dedicated React Context and utilizing local storage synchronization triggers.",
                 improvements: "Integrate a real Stripe Payment gateway sandbox and incorporate webhooks to process order receipt emails."
             }
+        },
+        {
+            title: "GroceryApp - Online Essentials Store",
+            tech: "React, Node.js, Express, MongoDB, Tailwind",
+            tag: "Full Stack (MERN)",
+            description: "A digital grocery ordering application featuring categorized catalog exploration, real-time item counter adjustments, and seamless shopping cart calculations.",
+            github: "https://github.com/nk1411projects/GroceryApp",
+            demo: null,
+            caseStudy: {
+                overview: "GroceryApp is a modern e-commerce storefront built for everyday grocery and household shopping. It provides shoppers with intuitive product category navigation, price calculations, and responsive cart handling.",
+                problem: "Traditional grocery ordering interfaces often feel sluggish on mobile devices with clunky item quantity management and slow catalog searches.",
+                solution: "Architected a lightning-fast React frontend paired with an Express and Node.js REST API. Built responsive item cards with immediate quantity adjustments, subtotal recalculations, and clean MongoDB data storage.",
+                techStack: ["React.js", "Node.js", "Express.js", "MongoDB", "Tailwind CSS", "JavaScript"],
+                keyFeatures: [
+                    "Categorized grocery catalog (Produce, Dairy, Essentials, Beverages)",
+                    "Instant search and category-based filtering",
+                    "Reactive shopping cart with dynamic price and tax calculations",
+                    "Mobile-first responsive design for quick on-the-go browsing",
+                    "Structured REST endpoints for product inventory management"
+                ],
+                challenges: "Maintaining accurate stock quantities and responsive shopping cart updates during continuous state modifications. Resolved by streamlining client-side state hooks with debounced synchronization to backend routes.",
+                improvements: "Implement real-time delivery slot booking and SMS notifications for order delivery updates."
+            }
+        },
+        {
+            title: "FastAPI High-Performance REST Service",
+            tech: "Python, FastAPI, Pydantic, SQLAlchemy, JWT, MySQL",
+            tag: "Backend (Python & FastAPI)",
+            description: "An asynchronous Python REST API service implementing strict Pydantic data schemas, OAuth2 JWT authentication, and high-throughput database endpoints.",
+            github: "https://github.com/nk1411projects",
+            demo: null,
+            caseStudy: {
+                overview: "A modular, scalable backend service developed with Python and FastAPI. Built to serve asynchronous REST endpoints with high concurrency, automated OpenAPI documentation, and robust database operations.",
+                problem: "Modern web applications require low-latency backends that strictly validate incoming payloads, protect sensitive endpoints, and handle concurrent API requests without blocking server threads.",
+                solution: "Engineered an asynchronous FastAPI backend utilizing Pydantic models for request validation and type safety. Configured OAuth2 password flow with JWT tokens for secure authentication and SQLAlchemy for database ORM operations.",
+                techStack: ["Python", "FastAPI", "Pydantic", "SQLAlchemy", "Uvicorn", "MySQL", "JWT"],
+                keyFeatures: [
+                    "Asynchronous route handlers for non-blocking I/O and rapid response times",
+                    "Strict request and response validation utilizing Pydantic data models",
+                    "OAuth2 with Password hashing (Bcrypt) and JWT access token verification",
+                    "Automated interactive Swagger UI and ReDoc documentation generation",
+                    "Relational database integration with SQLAlchemy ORM and transactional safety"
+                ],
+                challenges: "Handling database session lifecycles across asynchronous request threads without leaking connections. Solved by implementing FastAPI's dependency injection system to manage session scopes cleanly.",
+                improvements: "Introduce Redis caching layer to cache frequently accessed read queries and reduce database load."
+            }
         }
     ],
 
@@ -217,14 +188,6 @@ export const portfolioData = {
             status: "completed"
         },
         {
-            id: "mysql",
-            name: "MySQL",
-            description: "Relational Database Management System.",
-            details: "Formed depth in SQL query scripting, database normalization, relational mapping, indexing, and executing secure transactional statements.",
-            skills: ["SQL Scripts", "Normalizations", "Joins", "Transactions"],
-            status: "completed"
-        },
-        {
             id: "fastapi",
             name: "FastAPI",
             description: "High-performance Python backend API framework.",
@@ -235,131 +198,44 @@ export const portfolioData = {
         {
             id: "python",
             name: "Python",
-            description: "The core programming language of AI and Data Science.",
+            description: "Core programming language for backend engineering and scripting.",
             details: "Mastered fundamental concepts: data structures (lists, dicts, tuples), object-oriented programming (OOP), file operations, scripting, and modular architecture.",
             skills: ["OOP", "Data Structures", "File Handling", "Scripts"],
             status: "completed"
         },
         {
-            id: "libraries",
-            name: "Core Libraries",
-            description: "Data manipulation, visualization and preprocessing tools.",
-            details: "Utilized NumPy for numerical vector matrices, Pandas for analytical DataFrame queries, and Matplotlib / Seaborn for graphing statistical insight charts.",
-            skills: ["NumPy Matrix Math", "Pandas DataFrames", "Matplotlib", "Seaborn Charts"],
+            id: "mysql",
+            name: "MySQL",
+            description: "Relational Database Management System.",
+            details: "Formed depth in SQL query scripting, database normalization, relational mapping, indexing, and executing secure transactional statements.",
+            skills: ["SQL Scripts", "Normalizations", "Joins", "Transactions"],
             status: "completed"
         },
         {
-            id: "ml",
-            name: "Machine Learning",
-            description: "Core algorithms and mathematical structures.",
-            details: "Understood foundational ML math: cost functions, gradient descent, overfitting/underfitting, and metrics like precision, recall, and ROC-AUC.",
-            skills: ["Gradient Descent", "Supervised Learning", "Unsupervised", "Metrics"],
+            id: "restapis",
+            name: "RESTful APIs",
+            description: "API architecture and client-server integration.",
+            details: "Designed and implemented robust RESTful APIs following HTTP standards, status codes, route grouping, and payload serialization.",
+            skills: ["Endpoint Design", "HTTP Protocols", "Error Handling", "CRUD Operations"],
             status: "completed"
         },
         {
-            id: "scikit",
-            name: "Scikit Learn",
-            description: "Developing and evaluating classic ML pipelines.",
-            details: "Built end-to-end ML pipelines: cross-validation, grid search hyperparameter tuning, and ensemble modeling (Random Forests, Gradient Boosting).",
-            skills: ["Pipelines", "Cross-Validation", "Ensembles", "GridSearch"],
+            id: "frontend",
+            name: "Modern Frontend",
+            description: "Interactive and responsive UI engineering.",
+            details: "Crafted dynamic user interfaces with React, Tailwind CSS, custom hooks, Framer Motion animations, and responsive flex/grid layouts.",
+            skills: ["React Hooks", "Tailwind CSS", "Responsive Design", "State Management"],
             status: "completed"
-        },
-        {
-            id: "dl",
-            name: "Deep Learning",
-            description: "Multi-layered artificial neural networks.",
-            details: "Studied feedforward networks, backpropagation, activation functions (ReLU, Sigmoid, Softmax), loss functions, and optimization techniques (Adam, SGD).",
-            skills: ["Neural Networks", "Backpropagation", "Activations", "Optimizers"],
-            status: "completed"
-        },
-        {
-            id: "tensorflow",
-            name: "TensorFlow",
-            description: "Framework for building large-scale deep learning models.",
-            details: "Explored model creation using Keras Sequential and Functional APIs, tensor manipulation, and saving/loading model weights.",
-            skills: ["Keras API", "Tensor Manipulation", "Model Saving", "Callbacks"],
-            status: "completed"
-        },
-        {
-            id: "nlp",
-            name: "NLP",
-            description: "Natural Language Processing algorithms.",
-            details: "Practiced parsing and converting language: tokenization, stop-word removal, POS tagging, Lemmatization, and bag-of-words/TF-IDF vectorizations using Spacy and NLTK.",
-            skills: ["Tokenization", "TF-IDF", "POS Tagging", "Spacy / NLTK"],
-            status: "completed"
-        },
-        {
-            id: "transformers",
-            name: "Transformers",
-            description: "Attention-based architectures for language processing.",
-            details: "Studied the encoder-decoder self-attention model, BERT/GPT architectures, and model fine-tuning with Hugging Face's transformers library.",
-            skills: ["Self-Attention", "BERT", "Hugging Face", "Fine-Tuning"],
-            status: "completed"
-        },
-        {
-            id: "genai",
-            name: "Generative AI",
-            description: "Neural generation models and prompt parameters.",
-            details: "Explored diffusion models, text generation tokenization, temperature controls, and programmatic content creation workflows.",
-            skills: ["Diffusion Models", "Text Generation", "Context Windows", "API Wrappers"],
-            status: "completed"
-        },
-        {
-            id: "llms",
-            name: "LLMs",
-            description: "Large Language Models at scale.",
-            details: "Learned deployment, inference parameters (temperature, top-p, penalties), quantization techniques, and working with major API models (GPT, Claude, Llama).",
-            skills: ["Inference", "Quantization", "APIs", "Model Parameters"],
-            status: "completed"
-        },
-        {
-            id: "prompt",
-            name: "Prompt Engineering",
-            description: "Systematic context construction for LLM outputs.",
-            details: "Mastered practical prompting frameworks: Zero-shot, Few-shot, Chain-of-Thought (CoT), System prompt structuring, and JSON schemas enforcement.",
-            skills: ["Few-Shot", "CoT", "JSON Enforcements", "System Prompts"],
-            status: "completed"
-        },
-        {
-            id: "langchain",
-            name: "LangChain",
-            description: "Orchestration library for LLM applications.",
-            details: "Built complex workflows using LangChain components: Prompts templates, Chains (LCEL), Memory models, Document loaders, and Output parsers.",
-            skills: ["LCEL Chaining", "Memory Hooks", "Document Loaders", "Parsers"],
-            status: "completed"
-        },
-        {
-            id: "rag",
-            name: "RAG",
-            description: "Retrieval-Augmented Generation architectures.",
-            details: "Developed semantic document retrieval: chunking strategies, embeddings models, vector stores (Pinecone, ChromaDB, FAISS), and hybrid search reranking.",
-            skills: ["Vector DBs", "Embeddings", "Chunking", "Hybrid Search"],
-            status: "completed"
-        },
-        {
-            id: "finetuning",
-            name: "Fine Tuning",
-            description: "Optimizing model weights on custom target tasks.",
-            details: "Researching parameter-efficient tuning methods (LoRA, QLoRA), formatting instructions datasets, using Hugging Face AutoTrain, and reviewing evaluation metrics.",
-            skills: ["LoRA", "QLoRA", "AutoTrain", "Instruction Datasets"],
-            status: "current"
         }
     ],
 
     timelineRoadmap: [
-        { title: "BCA Graduation", desc: "Graduated with 73%, forming software foundations and relational database logic." },
+        { title: "BCA Graduation", desc: "Graduated with 73%, building core computer science and database foundations." },
         { title: "MERN Stack Mastery", desc: "Developed full-stack web applications integrating React, Node, Express, and MongoDB." },
-        { title: "MySQL", desc: "Designed normalized relational databases and optimized execution queries." },
-        { title: "FastAPI Development", desc: "Built highly performant, asynchronous Python endpoints with automatic request validation." },
-        { title: "Python Specialization", desc: "Focused on core scripts, data structures, and object-oriented scripting." },
-        { title: "Scientific Libraries", desc: "Leveraged NumPy, Pandas, Matplotlib, and Seaborn to preprocess datasets and plot insights." },
-        { title: "Machine Learning Models", desc: "Trained supervised and unsupervised models (regression, forests) using Scikit-Learn." },
-        { title: "Deep Learning Foundations", desc: "Programmed neural architectures, backpropagation nodes, and Adam optimization loops." },
-        { title: "NLP Vectorization", desc: "Constructed text processing pipelines via Spacy/NLTK tokenization and TF-IDF mappings." },
-        { title: "Generative AI Systems", desc: "Learned text-generation prompts, context parameters, and content workflows." },
-        { title: "LLM Operations", desc: "Deployed large language models utilizing quantization models and server inference API endpoints." },
-        { title: "LangChain Orchestration", desc: "Constructed custom execution chains (LCEL) and document search loaders." },
-        { title: "RAG Deployments", desc: "Programmed retrieval-augmented generation systems mapping custom database vector embeddings." },
-        { title: "Model Fine Tuning", desc: "Applying parameter-efficient adaptations (LoRA, QLoRA) on custom instructions datasets." }
+        { title: "MySQL Relational Logic", desc: "Designed normalized relational schemas and optimized complex SQL execution queries." },
+        { title: "Python Specialization", desc: "Focused on core OOP patterns, data structures, and backend scripts." },
+        { title: "FastAPI Backend Engineering", desc: "Built performant, asynchronous Python endpoints with Pydantic schema validation." },
+        { title: "RESTful API Architecture", desc: "Engineered secure client-server data flows with JWT authentication and middleware guards." },
+        { title: "Full Stack Production Deployments", desc: "Deployed scalable web apps and backend services to modern cloud hosting platforms." }
     ]
 };

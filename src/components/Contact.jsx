@@ -74,7 +74,7 @@ const Contact = () => {
             <div className="space-y-6">
               <h3 className="text-2xl font-extrabold text-white">Let's Connect</h3>
               <p className="text-slate-400 text-sm leading-relaxed">
-                I'm open to discussing AI development roles, Generative AI research pipelines, and full-stack integrations. Send a message or reach out via social handles.
+                I'm open to discussing Full Stack development roles, MERN opportunities, Python &amp; FastAPI backend engineering, and software development collaborations. Send a message or reach out via social handles.
               </p>
             </div>
 
